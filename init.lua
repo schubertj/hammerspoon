@@ -20,6 +20,19 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
   win:setFrame(f)
 end)
 
+hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "Right", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = max.x + (max.w / 1.4)
+  f.y = max.y
+  f.w = max.w / 3.5
+  f.h = max.h
+  win:setFrame(f)
+end)
+
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Left", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
@@ -59,20 +72,6 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Down", function()
   win:setFrame(f)
 end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "Right", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
-
-  f.x = max.x + (max.w / 1.4)
-  f.y = max.y
-  f.w = max.w / 3.5
-  f.h = max.h
-  win:setFrame(f)
-end)
-
-
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Right", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
@@ -99,6 +98,11 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "m", function()
   win:setFrame(f)
 end)
 
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "n", function()
+  local win = hs.window.focusedWindow()
+  local screen = win:screen()
+  hs.window.focusedWindow():moveToScreen(screen:next())
+end)
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "1", function()
   local win = hs.window.focusedWindow()
